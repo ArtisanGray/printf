@@ -5,11 +5,11 @@
 *
 *
 */
-int spec_handler(va_list(args), char *spec)
+int spec_handler(va_list(args), char spec)
 {
 	int olen = 0;
 
-		switch(spec[0])
+		switch(spec)
 		{
 			case 'c':
 				_putchar(va_arg(args, int));

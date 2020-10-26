@@ -6,7 +6,7 @@
 #include <stdarg.h>
 #include <ctype.h>
 
-int spec_handler(va_list(args), char *spec);
+int spec_handler(va_list(args), char spec);
 int _printf(const char *format, ...);
 int _putchar(int c);
 int _puts(va_list(args));

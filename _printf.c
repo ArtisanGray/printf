@@ -8,29 +8,33 @@
 int _printf(const char *format, ...)
 {
 	int i, olen = 0, match = 0;
-	va_list args;
-	char *spc; /* specifier string, holds 1-2 characters */
+	va_list args;/* specifier string, holds 1-2 characters */
 
 	va_start(args, format);
-
-	for (i = 0; format && format[i] != '\0'; i++) /* loops through string */
+	if (format == NULL)
+		return (0);
+	for (i = 0; format[i] != '\0'; i++) /* loops through string */
 	{
-		if (format[i] == '%') /* hits escape character */
+		if (format[i + 1] == '%') /* hits escape character */
 		{
 			if (format[i + 1] != '\0')
 			{
-				match += 1;
-				spc = malloc(sizeof(char) * 1);
-				if (spc == NULL)
-					return(-1);
-				spc[0] = format[i + 1];
-				olen += spec_handler(args, spc);
+				match += 2;
+				olen += spec_handler(args, format[i + 1]);
 				i += 2;
 			}
+			if (format[i + 1] == '%')
+			{
+				i += 1;
+				match += 1;
+			}
 		} /* if a specifier isnt passed, it just prints the character*/
-		_putchar(format[i]);
+		if (format[i] != '\0')
+			_putchar(format[i]);
+		else
+			break;
 	}
 	olen += i; /* since printf has a default return value of its length, overall length (from return of handler) is added to by the number of character printed*/
 	va_end(args);
-	return(olen - match * 2);
+	return(olen - match);
 }
