@@ -12,13 +12,12 @@ int spec_handler(va_list(args), char *spec)
 		switch(spec[0])
 		{
 			case 'c':
-			{
 				_putchar(va_arg(args, int));
 				olen++;
 				break;
-			}
 			case 's':
 				olen = _puts(args);
+				olen -= 1;
 				break;
 			case 'i':
 				/* _int */
@@ -33,5 +32,5 @@ int spec_handler(va_list(args), char *spec)
 			default:
 				break;
 		}
-	return (olen - 1);
+	return (olen);
 }

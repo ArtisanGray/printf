@@ -7,7 +7,7 @@
 */
 int _printf(const char *format, ...)
 {
-	int i, olen = 0;
+	int i, olen = 0, match = 0;
 	va_list args;
 	char *spc; /* specifier string, holds 1-2 characters */
 
@@ -19,6 +19,7 @@ int _printf(const char *format, ...)
 		{
 			if (format[i + 1] != '\0')
 			{
+				match += 1;
 				spc = malloc(sizeof(char) * 1);
 				if (spc == NULL)
 					return(-1);
@@ -31,5 +32,5 @@ int _printf(const char *format, ...)
 	}
 	olen += i; /* since printf has a default return value of its length, overall length (from return of handler) is added to by the number of character printed*/
 	va_end(args);
-	return(olen - 1);
+	return(olen - match * 2);
 }
