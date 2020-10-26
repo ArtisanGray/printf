@@ -7,15 +7,35 @@
 */
 int spec_handler(va_list(args), char *spec)
 {
-	int olen;
-	char *stupid;
-	int stupid2;
+	int olen = 0;
+	char *temp;
 
-	stupid = spec;
-	stupid2 = va_arg(args, int);
-	printf("stupid2 has the value of %d, and stupid is %s\n", stupid2, stupid);
-	/*dummy solution for the c ompiler to be happy*/
+	while(spec != NULL && spec[i] != '\0')
+	{
+		switch(spec[i])
+		{
+		case 'c':
+		{
+			_putchar(va_arg(spec[i]));
+			olen++;
+			break;
+		}
+		case 's':
+			_puts(args);
+			break;
+		case 'i':
+			/* _int */
+			break;
+		case 'd':
+			/* _decimal */
+			break;
+		case '%':
+			_putchar('%');
+			break;
 
-	/*this function should contain a switch statement*/
-	return (0);
+		default:
+			break;
+		}
+	}
+	return (olen);
 }
