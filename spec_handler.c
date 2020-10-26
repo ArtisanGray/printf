@@ -1,15 +1,17 @@
 #include "holberton.h"
 #include <stdio.h>
 /**
+* spec_handler - handles the correct functions to be called based on specifier
+* @args: argument list
+* @spec: specifier character
 *
-*
-*
+* Return: length value of what's been printed top stdout
 */
-int spec_handler(va_list(args), char spec)
+int spec_handler(va_list args, char spec)
 {
 	int olen = 0;
 
-		switch(spec)
+		switch (spec)
 		{
 			case 'c':
 				_putchar(va_arg(args, int));
@@ -20,13 +22,12 @@ int spec_handler(va_list(args), char spec)
 				olen -= 1;
 				break;
 			case 'i':
-				/* _int */
+				olen = _itoa(args);
 				break;
 			case 'd':
-				/* _decimal */
+				olen = _itoa(args);
 				break;
 			case '%':
-				_putchar('%');
 				olen++;
 				break;
 			default:

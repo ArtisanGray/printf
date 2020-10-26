@@ -15,7 +15,7 @@ int _printf(const char *format, ...)
 		return (0);
 	for (i = 0; format[i] != '\0'; i++) /* loops through string */
 	{
-		if (format[i + 1] == '%') /* hits escape character */
+		if (format[i] == '%') /* hits escape character */
 		{
 			if (format[i + 1] != '\0')
 			{
@@ -25,8 +25,8 @@ int _printf(const char *format, ...)
 			}
 			if (format[i + 1] == '%')
 			{
-				i += 1;
-				match += 1;
+				i++;
+				match++;
 			}
 		} /* if a specifier isnt passed, it just prints the character*/
 		if (format[i] != '\0')
@@ -34,7 +34,7 @@ int _printf(const char *format, ...)
 		else
 			break;
 	}
-	olen += i; /* since printf has a default return value of its length, overall length (from return of handler) is added to by the number of character printed*/
+	olen += i;
 	va_end(args);
-	return(olen - match);
+	return (olen - match);
 }
