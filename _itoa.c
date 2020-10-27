@@ -34,3 +34,26 @@ int _itoa(va_list args)
 	olen++;
 	return (olen);
 }
+/**
+* _uitoa - prints an unsigned integer
+* @args: argument list passed from _printf
+*
+* Return: 0 or length printed
+*/
+int _uitoa(va_list args)
+{
+	unsigned int div = 1000000000, n;
+	int len = 0;
+
+	n = va_arg(args, unsigned int);
+	while (div / 10 != 0)
+	{
+		if (n / div != 0)
+			_putchar('0' + ((n / div) % 10));
+		div /= 10;
+		len++;
+	}
+	_putchar('0' + n % 10);
+	len++;
+	return (len);
+}

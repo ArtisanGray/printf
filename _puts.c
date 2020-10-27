@@ -7,7 +7,7 @@
  */
 int _puts(va_list args)
 {
-	int i;
+	int i = 0;
 	char *tmp = va_arg(args, char *);
 
 	if (tmp == NULL)

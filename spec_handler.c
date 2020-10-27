@@ -21,9 +21,8 @@ int spec_handler(va_list args, char spec)
 				_putchar(temp);
 				olen++;
 				break;
-			case 's':
-				olen = _puts(args);
-				olen -= 1;
+			case 'u':
+				olen = _uitoa(args);
 				break;
 			case 'i':
 				olen = _itoa(args);
@@ -31,12 +30,13 @@ int spec_handler(va_list args, char spec)
 			case 'd':
 				olen = _itoa(args);
 				break;
-			case '%':
-				olen++;
+			case 's':
+				olen = _puts(args);
+				olen -= 1;
 				break;
-			case 'u':
-				olen = _itoa(args);
 			default:
+				_putchar(spec);
+				olen++;
 				break;
 		}
 	return (olen);
