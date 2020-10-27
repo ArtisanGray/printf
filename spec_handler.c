@@ -10,11 +10,15 @@
 int spec_handler(va_list args, char spec)
 {
 	int olen = 0;
+	char temp;
 
 		switch (spec)
 		{
 			case 'c':
-				_putchar(va_arg(args, int));
+				temp = va_arg(args, int);
+				if (!temp)
+					return (-1);
+				_putchar(temp);
 				olen++;
 				break;
 			case 's':
@@ -30,6 +34,8 @@ int spec_handler(va_list args, char spec)
 			case '%':
 				olen++;
 				break;
+			case 'u':
+				olen = _itoa(args);
 			default:
 				break;
 		}

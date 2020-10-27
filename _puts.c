@@ -10,6 +10,8 @@ int _puts(va_list args)
 	int i;
 	char *tmp = va_arg(args, char *);
 
+	if (tmp == NULL)
+		return (0);
 	while (tmp[i] != '\0')
 	{
 		_putchar(tmp[i]);
