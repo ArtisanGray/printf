@@ -11,6 +11,7 @@ int spec_handler(va_list args, char spec)
 {
 	int olen = 0;
 	char temp;
+	char *temps;
 
 		switch (spec)
 		{
@@ -33,6 +34,12 @@ int spec_handler(va_list args, char spec)
 			case 's':
 				olen = _puts(args);
 				olen -= 1;
+				break;
+			case 'r':
+				temps = va_arg(args, char *);
+				if (!temps)
+					return (-1);
+				olen = print_rev(temps);
 				break;
 			default:
 				_putchar(spec);
