@@ -17,6 +17,22 @@ int _strlen(char *s)
 	return (n);
 }
 /**
+ *print_rev - print a string in reverse
+ *@s: the pointer given to print
+ *
+ *Return: n the length 
+*/
+int print_rev(char *s)
+{
+	int i, n = _strlen(s);
+
+	for (i = n - 1; i > 0; i--)
+	{
+		_putchar(s[i]);
+	}
+	return (n);
+}
+/**
  * _puts - Function that prints a string
  * @args: The pointer that leads to the string
  *
