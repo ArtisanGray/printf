@@ -54,11 +54,11 @@ int print_rev(char *s)
 {
 	int i, n = _strlen(s);
 
-	for (i = n; i >= 0; i--)
+	for (i = n - 1; i > 0; i--)
 	{
 		_putchar(s[i]);
 	}
-	return (n + 1);
+	return (n);
 }
 /**
  * _puts - Function that prints a string
