@@ -70,9 +70,14 @@ int _puts(va_list args)
 {
 	int i = 0;
 	char *tmp = va_arg(args, char *);
+	char *fail = "(null)";
 
 	if (tmp == NULL)
-		return (0);
+	{
+		for (; fail != '\0'; fail++)
+			_putchar(fail);
+		return (-1);
+	}
 	while (tmp[i] != '\0')
 	{
 		_putchar(tmp[i]);
