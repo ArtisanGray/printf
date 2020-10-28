@@ -29,7 +29,10 @@ int _printf(const char *format, ...)
 				match++;
 			}
 		} /* if a specifier isnt passed, it just prints the character*/
-		_putchar(format[i]);
+		if (format[i] != '\0')
+		{
+			_putchar(format[i]);
+		}
 	}
 	olen += i;
 	va_end(args);
