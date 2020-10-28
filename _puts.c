@@ -68,14 +68,14 @@ int print_rev(char *s)
  */
 int _puts(va_list args)
 {
-	int i = 0;
+	int i = 0, j;
 	char *tmp = va_arg(args, char *);
 	char *fail = "(null)";
 
 	if (tmp == NULL)
 	{
-		for (; fail != '\0'; fail++)
-			_putchar(fail);
+		for (j = 0; fail[j] != '\0'; j++)
+			_putchar(fail[j]);
 		return (-1);
 	}
 	while (tmp[i] != '\0')
