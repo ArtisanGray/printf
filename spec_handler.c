@@ -31,7 +31,6 @@ int spec_handler(va_list args, char spec)
 				break;
 			case 's':
 				olen = _puts(args);
-				olen -= 1;
 				break;
 			case 'r':
 				temps = va_arg(args, char *);
@@ -40,7 +39,6 @@ int spec_handler(va_list args, char spec)
 				olen = print_rev(temps);
 			case 'S':
 				olen = _puts(args);
-				olen -= 1;
 				break;
 			case 'R':
 				olen = rot13(args);

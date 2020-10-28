@@ -26,9 +26,9 @@ int _itoa(va_list args)
 		if (n / div != 0)
 		{
 			_putchar('0' + ((n / div) % 10));
+			olen++;
 		}
 		div /= 10;
-		olen++;
 	}
 	_putchar('0' + (flippy == 1 ? 8 : n % 10));
 	olen++;
