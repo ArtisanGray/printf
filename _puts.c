@@ -76,7 +76,7 @@ int _puts(va_list args)
 	{
 		for (j = 0; fail[j] != '\0'; j++)
 			_putchar(fail[j]);
-		return (-1);
+		return (6);
 	}
 	while (tmp[i] != '\0')
 	{
