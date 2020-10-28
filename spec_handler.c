@@ -17,8 +17,6 @@ int spec_handler(va_list args, char spec)
 		{
 			case 'c':
 				temp = va_arg(args, int);
-				if (!temp)
-					return (-1);
 				_putchar(temp);
 				olen++;
 				break;
@@ -42,10 +40,7 @@ int spec_handler(va_list args, char spec)
 				olen = print_rev(temps);
 				break;
 			case 'R':
-				temps = va_arg(args, char *);
-				if (!temps)
-					return (-1);
-				olen = _puts(rot(temps));
+				olen = rot13(args);
 				break;
 			default:
 				_putchar(spec);

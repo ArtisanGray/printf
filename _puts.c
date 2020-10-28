@@ -1,28 +1,31 @@
 #include "holberton.h"
 /**
  * rot13 - rotates the cipher of a string by 13
- * @str: string pointer to be rotated
+ * @args: string pointer to be rotated
  *
  * Return: rotated string
  */
-char *rot13(char *str)
+int rot13(va_list args)
 {
 	int i, j;
+	char *temp = va_arg(args, char *);
 	char *alp = "abcdefghijklmnopqrstuvxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
 	char *nyc = "nopqrstuvwxyzabcdefghiklmNOPQRSTUVWXYZABCDEFGHIJKLM";
 
-	for (i = 0; str[i] != '\0'; i++)
+	if (temp == NULL)
+		return (-1);
+	for (i = 0; temp[i] != '\0'; i++)
 	{
 		for (j = 0; alp[j] != '\0'; j++)
 		{
-			if (str[i] == alp[j])
+			if (temp[i] == alp[j])
 			{
-				str[i] = nyc[j];
+				_putchar(nyc[j]);
 				break;
 			}
 		}
 	}
-	return (str);
+	return (i - 1);
 }
 /**
  *_strlen - gives the length of a array using a loop

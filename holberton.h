@@ -14,5 +14,6 @@ int _itoa(va_list(args));
 int _uitoa(va_list(args));
 int print_rev(char *s);
 int _strlen(char *s);
+int rot13(va_list(args));
 
 #endif
