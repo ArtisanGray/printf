@@ -58,7 +58,7 @@ int print_rev(char *s)
 	{
 		_putchar(s[i]);
 	}
-	return (n);
+	return (n + 1);
 }
 /**
  * _puts - Function that prints a string
