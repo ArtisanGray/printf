@@ -38,18 +38,15 @@ int spec_handler(va_list args, char spec)
 				if (!temps)
 					return (-1);
 				olen = print_rev(temps);
-				break;
 			case 'S':
 				olen = _puts(args);
 				olen -= 1;
 				break;
 			case 'R':
 				olen = rot13(args);
-				break;
 			default:
 				_putchar(spec);
 				olen++;
-				break;
 		}
 	return (olen);
 }
